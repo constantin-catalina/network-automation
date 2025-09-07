@@ -1,0 +1,20 @@
+===========================
+=========== SW3 ===========
+===========================
+
+int range e0/0-2
+ switchport port-security
+ switchport port-security maximum 3
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+
+
+===========================
+=========== SW4 ===========
+===========================
+
+int range e0/0-2
+ switchport port-security
+ switchport port-security maximum 3
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky

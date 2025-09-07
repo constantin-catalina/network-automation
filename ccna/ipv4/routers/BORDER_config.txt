@@ -1,0 +1,27 @@
+=========== BORDER ==========
+en
+conf t
+hostname BORDER
+int e0/0
+ip add 53.94.32.6 255.255.255.252
+no sh
+exit
+int e0/1
+ip add 208.10.12.2 255.255.255.252
+no sh
+exit
+int e0/2
+ip add 53.94.32.9 255.255.255.252
+no sh
+exit
+ip route 0.0.0.0 0.0.0.0 208.10.12.1
+do wr
+
+router rip
+version 2
+no auto-summary
+default-information originate
+network 53.94.32.8  
+network 53.94.32.4
+exit 
+do wr 

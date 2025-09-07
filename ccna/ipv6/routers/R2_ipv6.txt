@@ -1,0 +1,27 @@
+enable
+configure terminal
+ipv6 unicast-routing
+ipv6 router rip TEST
+
+interface e0/0
+ ipv6 address 2001:db1:cafe:4::2/64
+ ipv6 address fe80::1 link-local
+ ipv6 rip TEST enable
+ no shutdown
+exit
+
+interface e0/1
+ ipv6 address 2001:db1:cafe:7::1/64
+ ipv6 address fe80::2 link-local
+ ipv6 rip TEST enable
+ no shutdown
+exit
+
+interface s2/0
+ ipv6 address 2001:db1:cafe:6::1/64
+ ipv6 address fe80::3 link-local
+ ipv6 rip TEST enable
+ no shutdown
+exit
+
+do wr

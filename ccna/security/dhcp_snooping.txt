@@ -1,0 +1,145 @@
+===========================
+=========== SiteA =========
+===========================
+
+=========== SW1 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 10
+ ip dhcp snooping vlan 20
+ ip dhcp snooping vlan 99
+ int range e0/0-2
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== SW2 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 10
+ ip dhcp snooping vlan 20
+ ip dhcp snooping vlan 99
+ int range e0/0-2
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== SW3 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 10
+ ip dhcp snooping vlan 20
+ ip dhcp snooping vlan 99
+ int range e0/0-2
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== SW4 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 10
+ ip dhcp snooping vlan 20
+ ip dhcp snooping vlan 99
+ int range e0/0-2
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== MSW ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 10
+ ip dhcp snooping vlan 20
+ ip dhcp snooping vlan 99
+ int range e0/0-1
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+
+===========================
+=========== SiteB =========
+===========================
+
+=========== SW5 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 30
+ ip dhcp snooping vlan 40
+ ip dhcp snooping vlan 99
+ int range e0/0-2
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== SW6 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 30
+ ip dhcp snooping vlan 40
+ ip dhcp snooping vlan 99
+ int range e0/0,e0/1,e0/3
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+=========== SW7 ===========
+en
+conf t
+ ip dhcp snooping
+ ip dhcp snooping vlan 30
+ ip dhcp snooping vlan 40
+ ip dhcp snooping vlan 99
+ int range e0/0,e0/2,e0/3
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr
+
+
+===========================
+========== Admin ==========
+===========================
+
+=========== SW0 ===========
+en
+conf t
+ ip dhcp snooping
+ int range e0/0-3
+  ip dhcp snooping trust
+  ip dhcp snooping limit rate 30
+ exit
+ errdisable recovery cause dhcp-rate-limit
+ errdisable recovery interval 60
+do wr

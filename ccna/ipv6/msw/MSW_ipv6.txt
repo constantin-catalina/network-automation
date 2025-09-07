@@ -1,0 +1,24 @@
+enable
+configure terminal
+sdm prefer dual-ipv4-and-ipv6 default
+do wr
+do reload
+
+ipv6 unicast-routing
+ipv6 router rip TEST
+
+interface vlan 1
+ ipv6 address 2001:db1:cafe:A::1/64
+ ipv6 address fe80::1 link-local
+ ipv6 rip TEST enable
+ no shutdown
+exit
+
+interface e0/2
+ ipv6 address 2001:db1:cafe:9::2/64
+ ipv6 address fe80::2 link-local
+ ipv6 rip TEST enable
+ no shutdown
+exit
+
+do wr

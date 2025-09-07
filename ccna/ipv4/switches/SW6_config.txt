@@ -1,0 +1,28 @@
+============ SW 6 ===========
+en
+conf t
+hostname SW6
+vlan 30
+vlan 40
+vlan 99
+exit
+int vlan 99
+ip add 172.16.3.252 255.255.255.0
+no sh
+exit
+ip route 0.0.0.0 0.0.0.0 172.16.3.254
+int vlan 30
+ip add 172.16.1.253 255.255.254.0
+no sh
+int e0/0
+switchport mode access
+switchport access vlan 30
+no sh
+exit
+int range e0/1,e0/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 30,40,99
+no sh
+exit
+do wr

@@ -1,0 +1,70 @@
+===========================
+=========== R1 ============
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr
+
+
+===========================
+=========== R2 ============
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr
+
+
+===========================
+=========== R3 ============
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr
+
+
+===========================
+=========== ISP ===========
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr
+
+
+===========================
+========= BORDER ==========
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr
+
+
+===========================
+=========== MSW ===========
+===========================
+
+conf t
+ logging host 192.168.0.1
+ logging trap informational
+ service timestamps log datetime msec
+ logging origin-id hostname
+do wr

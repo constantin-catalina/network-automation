@@ -1,0 +1,52 @@
+============= R3 ============
+en
+conf t
+hostname R3
+int e0/1
+ip add 53.94.32.14 255.255.255.252
+no sh
+exit
+int e0/0
+ip add 53.94.32.10 255.255.255.252
+no sh
+exit
+int e0/2
+ip add 172.48.68.1 255.255.255.252
+no sh
+exit
+int s2/0
+ip add 53.94.32.18 255.255.255.252
+no sh
+exit
+do wr
+
+router rip
+version 2
+no auto-summary
+network 53.94.32.8  
+network 53.94.32.12
+network 53.94.32.16
+network 172.48.68.0
+exit 
+do wr 
+
+ip dhcp excluded-address 172.16.5.158
+ip dhcp excluded-address 172.16.4.254
+ip dhcp excluded-address 172.16.2.254
+
+ip dhcp pool LAN10
+network 172.16.5.128 255.255.255.224
+default-router 172.16.5.158
+dns-server 8.8.8.8
+exit
+ip dhcp pool LAN20
+network 172.16.4.0 255.255.255.0
+default-router 172.16.4.254
+dns-server 8.8.8.8
+exit
+ip dhcp pool LAN99
+network 172.16.2.0 255.255.255.0
+default-router 172.16.2.254
+dns-server 8.8.8.8
+exit
+do wr

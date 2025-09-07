@@ -1,0 +1,11 @@
+==================================
+========== SSH =================== 
+==================================
+ip domain name YOUR_DOMAIN_NAME
+username YOUR_USER secret YOUR_PASSWORD
+line vty 0 4
+transport input ssh
+login local
+exit
+crypto key generate rsa modulus 4096
+do wr

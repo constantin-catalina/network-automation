@@ -1,0 +1,184 @@
+===========================
+=========== SiteA =========
+===========================
+
+=========== SW1 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== SW2 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== SW3 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== SW4 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== MSW ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface vlan99
+ ip access-group ACL_NO_TELNET in
+interface vlan10
+ ip access-group ACL_NO_TELNET in
+interface vlan20
+ ip access-group ACL_NO_TELNET in
+exit
+do wr
+
+
+===========================
+=========== SiteB =========
+===========================
+
+=========== SW5 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== SW6 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== SW7 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+=========== R1 ============
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface e0/0.30
+ ip access-group ACL_NO_TELNET in
+interface e0/0.40
+ ip access-group ACL_NO_TELNET in
+interface e0/0.99
+ ip access-group ACL_NO_TELNET in
+interface e0/1
+ ip access-group ACL_NO_TELNET in
+interface e0/2
+ ip access-group ACL_NO_TELNET in
+exit
+do wr
+
+
+===========================
+========== Admin ==========
+===========================
+
+=========== SW0 ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+do wr
+
+
+===========================
+========= Routere =========
+===========================
+
+=========== R2 ============
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface range e0/0-1
+ ip access-group ACL_NO_TELNET in
+interface s2/0
+ ip access-group ACL_NO_TELNET in
+exit
+do wr
+
+=========== R3 ============
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface range e0/0-2
+ ip access-group ACL_NO_TELNET in
+interface s2/0
+ ip access-group ACL_NO_TELNET in
+exit
+do wr
+
+=========== BORDER =========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface range e0/0-2
+ ip access-group ACL_NO_TELNET in
+exit
+do wr
+
+=========== ISP ===========
+ip access-list extended ACL_NO_TELNET
+ permit tcp any any eq 22
+ permit icmp any any
+ deny tcp any any eq 23
+ permit ip any any
+exit
+
+interface range e0/0-1
+ ip access-group ACL_NO_TELNET in
+exit
+do wr

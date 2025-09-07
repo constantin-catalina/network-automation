@@ -1,0 +1,10 @@
+============ SW 0 ===========
+en
+conf t
+hostname SW0
+int vlan 1
+ip add 192.168.0.5 255.255.255.128
+no sh
+exit
+ip route 0.0.0.0 0.0.0.0 192.168.0.6
+do wr

@@ -1,0 +1,144 @@
+===========================
+========== ADMIN ==========
+===========================
+
+========= ISP ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 5.5.5.5 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW0 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 10.10.10.10 255.255.255.255
+  no shutdown
+exit
+do wr
+
+
+===========================
+========== SITE A =========
+===========================
+
+========= MSW ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 18.18.18.18 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW4 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 14.14.14.14 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW3 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 13.13.13.13 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW2 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 12.12.12.12 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW1 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 11.11.11.11 255.255.255.255
+  no shutdown
+exit
+do wr
+
+
+===========================
+========== SITE B =========
+===========================
+
+========= SW5 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 15.15.15.15 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW6 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 16.16.16.16 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= SW7 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 17.17.17.17 255.255.255.255
+  no shutdown
+exit
+do wr
+
+
+===========================
+======== LAN PORTO ========
+===========================
+
+========= R1 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 1.1.1.1 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= R2 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 2.2.2.2 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= R3 ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 3.3.3.3 255.255.255.255
+  no shutdown
+exit
+do wr
+
+========= BORDER ==========
+enable
+configure terminal
+ interface loopback0
+  ip address 4.4.4.4 255.255.255.255
+  no shutdown
+exit
+do wr

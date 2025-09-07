@@ -1,0 +1,9 @@
+==================================
+========== Telnet ================
+==================================
+line vty 0 4
+password YOUR_PASSWORD
+login
+transport input telnet
+exit
+do wr

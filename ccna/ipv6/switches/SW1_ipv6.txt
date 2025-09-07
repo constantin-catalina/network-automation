@@ -1,0 +1,16 @@
+enable
+configure terminal
+sdm prefer dual-ipv4-and-ipv6 default
+do wr
+do reload
+
+ipv6 unicast-routing
+
+interface vlan 1
+ ipv6 address 2001:db1:cafe:A::5/64
+ ipv6 address fe80::5 link-local
+ ipv6 route ::/0 2001:db1:cafe:A::1
+ no shutdown
+exit
+
+do wr

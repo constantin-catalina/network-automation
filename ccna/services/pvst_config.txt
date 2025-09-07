@@ -1,0 +1,56 @@
+===========================
+=========== SiteA =========
+===========================
+
+========= SW3 ===========
+spanning-tree mode pvst
+spanning-tree vlan 10 priority 4096
+spanning-tree vlan 20 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= SW4 ===========
+spanning-tree mode pvst
+spanning-tree vlan 20 priority 4096
+spanning-tree vlan 10 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= SW1 ===========
+spanning-tree mode pvst
+spanning-tree vlan 10 priority 32768
+spanning-tree vlan 20 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= SW2 ===========
+spanning-tree mode pvst
+spanning-tree vlan 10 priority 32768
+spanning-tree vlan 20 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= MSW ===========
+spanning-tree mode pvst
+spanning-tree vlan 10 priority 32768
+spanning-tree vlan 20 priority 32768
+spanning-tree vlan 99 priority 4096
+
+
+===========================
+=========== SiteB =========
+===========================
+
+========= SW6 ===========
+spanning-tree mode pvst
+spanning-tree vlan 30 priority 4096
+spanning-tree vlan 40 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= SW7 ===========
+spanning-tree mode pvst
+spanning-tree vlan 40 priority 4096
+spanning-tree vlan 30 priority 32768
+spanning-tree vlan 99 priority 32768
+
+========= SW5 ===========
+spanning-tree mode pvst
+spanning-tree vlan 30 priority 32768
+spanning-tree vlan 40 priority 32768
+spanning-tree vlan 99 priority 4096

@@ -1,0 +1,29 @@
+===========================
+=========== R1 ============
+===========================
+
+ip access-list standard 1
+ deny 172.16.0.0 0.0.1.255
+ deny 172.16.5.0 0.0.0.127
+ permit any
+exit
+
+interface e0/0.99
+ ip access-group 1 in
+
+
+===========================
+=========== MSW ===========
+===========================
+
+ip access-list standard 2
+ deny 172.16.5.128 0.0.0.31
+ deny 172.16.4.0 0.0.0.255
+ permit any
+exit
+
+interface vlan 99
+ ip access-group 2 in
+
+interface e0/2
+ ip access-group 2 in

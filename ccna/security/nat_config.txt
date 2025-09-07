@@ -1,0 +1,65 @@
+===========================
+=========== ISP ===========
+===========================
+
+conf t
+ int e0/0
+  ip nat inside
+ int e0/1
+  ip nat outside
+
+ ip access-list standard ACL_ADMIN
+  permit 192.168.0.0 0.0.0.127
+
+ ip nat inside source list ACL_ADMIN interface e0/1 overload
+ do wr
+
+ ! NAT static pentru DNS server
+ ip nat inside source static tcp 192.168.0.3 53 208.10.12.1 53
+ ip nat inside source static udp 192.168.0.3 53 208.10.12.1 53
+
+
+===========================
+=========== R1 ============
+===========================
+
+conf t
+ int e0/0.30
+  ip nat inside
+ int e0/0.40
+  ip nat inside
+ int e0/0.99
+  ip nat inside
+ int e0/1
+  ip nat outside
+
+ ip access-list standard ACL_R1
+  permit 172.16.0.0 0.0.1.255
+  permit 172.16.5.0 0.0.0.127
+  permit 172.16.3.0 0.0.0.255
+
+ ip nat inside source list ACL_R1 interface e0/1 overload
+ do wr
+
+
+===========================
+=========== MSW ===========
+===========================
+
+conf t
+ int vlan 10
+  ip nat inside
+ int vlan 20
+  ip nat inside
+ int vlan 99
+  ip nat inside
+ int e0/2
+  ip nat outside
+
+ ip access-list standard ACL_MSW
+  permit 172.16.5.128 0.0.0.31
+  permit 172.16.4.0 0.0.0.255
+  permit 172.16.2.0 0.0.0.255
+
+ ip nat inside source list ACL_MSW interface e0/2 overload
+ do wr

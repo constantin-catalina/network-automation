@@ -1,0 +1,44 @@
+============= R1 ============
+en
+conf t
+hostname R1
+int e0/0.30
+encapsulation dot1q 30
+ip add 172.16.1.254 255.255.254.0
+no sh
+exit
+int e0/0.40
+encapsulation dot1q 40
+ip add 172.16.5.126 255.255.255.128
+no sh
+exit
+int e0/0.99
+encapsulation dot1q 99
+ip add 172.16.3.254 255.255.255.0
+no sh
+exit
+int e0/0
+no sh
+int e0/1
+ip  add 53.94.32.13 255.255.255.252
+no sh
+exit
+int e0/2
+ip add 53.94.32.1 255.255.255.252
+no sh
+exit
+do wr
+
+router rip
+version 2
+no auto-summary
+network 53.94.32.0
+network 53.94.32.12
+network 172.16.5.0
+network 172.16.0.0
+network 172.16.3.0
+passive-interface e0/0.30
+passive-interface e0/0.40
+passive-interface e0/0.99
+exit
+do wr
