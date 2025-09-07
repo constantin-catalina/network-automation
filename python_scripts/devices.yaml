@@ -1,0 +1,76 @@
+Router1:
+  role: router
+  connection:
+    host: 53.94.32.13
+    username: xxxxx
+    password: xxxxx
+    secret: xxxxx
+    device_type: cisco_ios
+  interfaces:
+    Ethernet0/0.30:
+      aliases: ethernet0/0.30,e0/0.30,et0/0.30,eth0/0.30,E0/0.30,Et0/0.30,Eth0/0.30
+      ip_address: 172.16.1.254
+      netmask: 255.255.254.0
+    Ethernet0/0.40:
+      aliases: ethernet0/0.40,e0/0.40,et0/0.40,eth0/0.40,E0/0.40,Et0/0.40,Eth0/0.40
+      ip_address: 172.16.5.126
+      netmask: 255.255.255.128
+    Ethernet0/0.99:
+      aliases: ethernet0/0.99,e0/0.99,et0/0.99,eth0/0.99,E0/0.99,Et0/0.99,Eth0/0.99
+      ip_address: 172.16.3.254
+      netmask: 172.16.3.254
+    Ethernet0/1:
+      aliases: ethernet0/1,e0/1,et0/1,eth0/1,E0/1,Et0/1,Eth0/1
+      ip_address: 53.94.32.13
+      netmask: 255.255.255.252
+    Ethernet0/2:
+      aliases: ethernet0/2,e0/2,et0/2,eth0/2,E0/2,Et0/2,Eth0/2
+      ip_address: 53.94.32.1
+      netmask: 255.255.255.252
+MSW:
+  role: msw
+  connection:
+    host: 172.48.68.2
+    username: xxxxx
+    password: xxxxx
+    secret: xxxxx
+    device_type: cisco_ios
+  interfaces:
+    Ethernet0/2:
+      aliases: ethernet0/2,e0/2,et0/2,eth0/2,E0/2,Et0/2,Eth0/2
+      ip_address: 172.48.68.2
+      netmask: 255.255.255.252
+    Vlan10:
+      aliases: vlan10, v10
+      ip_address: 172.16.5.158
+      netmask: 255.255.255.224
+    Vlan20:
+      aliases: vlan20, v20
+      ip_address: 172.16.4.254
+      netmask: 255.255.255.0
+    Vlan99:
+      aliases: vlan99, v99
+      ip_address: 172.16.2.254
+      netmask: 255.255.255.0
+Switch6:
+  role: switch
+  connection:
+    host: 172.16.3.252
+    username: xxxxx
+    password: xxxxx
+    secret: xxxxx
+    device_type: cisco_ios
+  interfaces:
+    Vlan30:
+        aliases: vlan30, v30
+        ip_address: 172.16.1.253
+        netmask: 255.255.254.0
+    Vlan99:
+        aliases: vlan99, v99
+        ip_address: 172.16.3.252
+        netmask: 255.255.255.0
+PC1:
+  role: host
+  connection:
+    host: 172.16.5.129
+    device_type: cisco_ios
